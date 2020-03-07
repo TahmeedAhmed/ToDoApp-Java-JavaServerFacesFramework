@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>JSF TEST</title>
+	<style>
+		body {
+  			background-color: lightblue;
+		}
+</style>
+</head>
+
+<h:body>
+	<h1>To Do App - JSF</h1>
+	
+	<h:form>
+		
+		<h:outputLabel for="txtTitle">
+			<h:outputText value="Enter title of task: "/> <br/>
+		</h:outputLabel>
+		<h:inputText id="txtTitle" size="50" value="#{p.title}"/>
+	
+		<br/> <br/>
+	
+		<h:outputLabel for="txtDesc">
+			<h:outputText value="Enter description of task: "/> <br/>
+		</h:outputLabel>
+		<h:inputText id="txtDesc" size="75" value="#{p.description}" />
+	
+		<br/> <br/>
+		
+		<h:outputLabel for="txtDate">
+			<h:outputText value="Enter date to do by: "/> <br/>
+		</h:outputLabel>
+		<h:inputText id="txtDate" size="25" value="#{p.toDoBy}" />
+		
+		<br/> <br/>
+		
+		<h:commandButton id="submit" value="Add Task" action="#{p.add}" />
+	</h:form>
+	
+	<h1>List of tasks to do: </h1>
+
+			
+	<ui:repeat value="#{p.list}" var="item">
+	<h:form>
+	<h:commandButton id="delete" value="Task Completed" action="#{p.delete(item.title, item.description, item.toDoBy)}" />
+	
+	<b>Title: </b> #{item.title}, <b>Description: </b> #{item.description}, <b>To Do By: </b> #{item.toDoBy}  <br/>
+	</h:form>
+   	</ui:repeat>
+	
+
+	
+	
+	
+</h:body>
+</html>
