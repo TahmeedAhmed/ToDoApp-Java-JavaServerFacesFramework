@@ -21,13 +21,13 @@ public class Item {
 	}
 	
 	public String add() {
-		System.out.println("Task added");
+		//System.out.println("Task added");
 		list.add(new Item(this.title, this.description, this.toDoBy));
 		return "index";
 	}
 	
 	public String delete(String title, String desc, String toDoBy) {
-		System.out.println("Attempting to delete Task: " + title);
+		//System.out.println("Attempting to delete Task: " + title);
 		//System.out.println(title);
 		for(Item item : list) {
 			if(item.getTitle().equals(title) && item.getDescription().equals(desc) && item.getToDoBy().equals(toDoBy)) {
@@ -35,7 +35,7 @@ public class Item {
 				break;
 			}
 		}
-		System.out.println("DRRAAAHJ" + list);
+		//System.out.println("CHECK: " + list);
 		return "index";
 	}
 	
